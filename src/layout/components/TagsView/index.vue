@@ -55,6 +55,7 @@ export default {
       this.addTags()
       this.getTagElement(val)
       this.selectedTag = val
+      this.$forceUpdate()
     }
   },
   mounted() {
@@ -134,7 +135,7 @@ export default {
       this.$nextTick(() => {
         const tagsItemArr = this.$refs.tagsItem
         const index = tagsItemArr.findIndex(item => {
-          return item.to.path === route.fullPath
+          return route.fullPath.indexOf(item.to.path) >-1
         })
         const tag = tagsItemArr[index].$el
         this.moveToCurrentTag(tag)

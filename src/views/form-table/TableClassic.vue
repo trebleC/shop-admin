@@ -94,7 +94,7 @@
         </el-table-column>
       </el-table>
       <!-- 分页栏 -->
-      <Pagination :total="total" :page.sync="listQuery.currentPage" :limit.sync="listQuery.pageSize" @pagination="fetchData" />
+      <Pagination :total="total" :page.sync="listQuery.pageNo" :limit.sync="listQuery.pageSize" @pagination="fetchData" />
       <!-- 新增/编辑 弹出栏 -->
       <el-dialog
         title="编辑"
@@ -196,7 +196,7 @@ export default {
         id: undefined,
         phone: undefined,
         married: undefined,
-        currentPage: 1,
+        pageNo: 1,
         pageSize: 10
       },
       // 新增/编辑提交表单对象
@@ -313,7 +313,7 @@ export default {
     },
     // 查询数据
     onSubmit() {
-      this.listQuery.currentPage = 1
+      this.listQuery.pageNo = 1
       this.fetchData()
     },
     // 导入数据

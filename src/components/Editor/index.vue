@@ -1,17 +1,7 @@
 <template>
   <div class="editor-wrapper">
-    <Toolbar
-      :editor="editor"
-      :mode="mode"
-      :default-config="toolbarConfig"
-    />
-    <Editor
-      v-model="html"
-      :mode="mode"
-      :default-config="editorConfig"
-      @onCreated="onCreated"
-      @onChange="onChange"
-    />
+    <Toolbar :editor="editor" :mode="mode" :default-config="toolbarConfig" />
+    <Editor v-model="html" :mode="mode" :default-config="editorConfig" @onCreated="onCreated" @onChange="onChange" />
   </div>
 </template>
 
@@ -36,11 +26,18 @@ export default Vue.extend({
     return {
       editor: null,
       mode: 'simple', // or 'default'
-      html: '请输入内容...',
-      toolbarConfig: { },
+      html: '',
+      toolbarConfig: {},
       editorConfig: {
-        placeholder: '请输入内容...'
-      }
+        placeholder: '请输入内容...',
+        MENU_CONF: {
+
+          uploadImage: {
+            server: '/upload',
+            base64LimitSize: 5 * 1024
+          }
+        }
+      },
     }
   },
   watch: {
@@ -65,13 +62,15 @@ export default Vue.extend({
 </script>
 
 <style lang="less">
-  .editor-wrapper{
-    box-shadow: rgba(0, 0, 0, 0.1) 0 2px 12px 0;
-    .w-e-toolbar{
-      background-color:#f1f1f1;
-    }
-    .w-e-text-container{
-      min-height: 450px !important;
-    }
+.editor-wrapper {
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 12px 0;
+
+  .w-e-toolbar {
+    background-color: #f1f1f1;
   }
+
+  .w-e-text-container {
+    min-height: 450px !important;
+  }
+}
 </style>

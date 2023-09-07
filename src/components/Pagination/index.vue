@@ -2,7 +2,7 @@
   <div class="pagination-wrapper">
     <el-pagination
       :background="background"
-      :current-page.sync="currentPage"
+      :current-page.sync="pageNo"
       :page-sizes="pageSizes"
       :page-size.sync="pageSize"
       :total="total"
@@ -46,7 +46,7 @@ export default {
     }
   },
   computed: {
-    currentPage: {
+    pageNo: {
       get() {
         return this.page
       },
@@ -65,7 +65,7 @@ export default {
   },
   methods: {
     handleSizeChange(val) {
-      this.$emit('pagination', { page: this.currentPage, limit: val })
+      this.$emit('pagination', { page: this.pageNo, limit: val })
     },
     handleCurrentChange(val) {
       this.$emit('pagination', { page: val, limit: this.pageSize })

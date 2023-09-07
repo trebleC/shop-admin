@@ -47,7 +47,7 @@ export default {
       listLoading: true,
       tableList: [],
       listQuery: {
-        currentPage: 1,
+        pageNo: 1,
         pageSize: 10
       }
     }

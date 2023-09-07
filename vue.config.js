@@ -31,14 +31,22 @@ module.exports = {
       errors: true
     },
     proxy: {
-      '/': { // 被代理的接口名
+      '/api': { // 被代理的接口名
+        target: process.env.VUE_APP_BASE_API, // url地址
+        changeOrigin: true, // 发送请求头中 host 是否设置成 target
+        pathRewrite: { // 重定向
+          '^/api': '/'
+        }
+      },
+      '/upload': { // 被代理的接口名
         target: process.env.VUE_APP_BASE_API, // url地址
         changeOrigin: true, // 发送请求头中 host 是否设置成 target
         pathRewrite: { // 重定向
           '^/': ''
         }
       }
-    }
+    },
+    hot: true, // 开启热模块更新
   },
   configureWebpack(config) {
     // production configuration Gzip compression

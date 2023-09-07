@@ -40,7 +40,7 @@ export const constantRoutes = [
     path: '/',
     name: 'Layout',
     component: Layout,
-    redirect: '/home',
+    redirect: '/good',
     children: [{
       path: 'home',
       name: 'Home',
@@ -52,15 +52,15 @@ export const constantRoutes = [
       }
     }]
   },
-  {
-    path: 'https://github.com/baimingxuan/vue-admin-design.git',
-    name: 'doc',
-    component: Layout,
-    meta: {
-      title: '文档',
-      icon: 'vue-dsn-icon-wendang'
-    }
-  },
+  // {
+  //   path: 'https://github.com/baimingxuan/vue-admin-design.git',
+  //   name: 'doc',
+  //   component: Layout,
+  //   meta: {
+  //     title: '文档',
+  //     icon: 'vue-dsn-icon-wendang'
+  //   }
+  // },
   {
     path: '/',
     name: 'Layout',
@@ -78,7 +78,7 @@ export const constantRoutes = [
   }
 ]
 
-const routes = [...constantRoutes, ...asyncRoutes]
+const routes = [...asyncRoutes,...constantRoutes, ]
 
 export default new Router({
   routes

@@ -12,7 +12,7 @@
         <el-card shadow="always" :body-style="{padding: '0px'}">
           <div slot="header" class="title">图片拖拽上传</div>
           <div class="content-box">
-            <el-upload action="https://jsonplaceholder.typicode.com/posts/" drag multiple>
+            <el-upload action="http://127.0.0.1:7002/upload" drag multiple>
               <i class="el-icon-upload" />
               <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
               <div slot="tip" class="el-upload__tip">只能上传jpg、jpeg、gif、png、bmp文件，且不超过500kb</div>
@@ -24,7 +24,7 @@
         <el-card shadow="always" :body-style="{padding: '0px'}">
           <div slot="header" class="title">图片列表缩略图</div>
           <div class="content-box">
-            <el-upload action="https://jsonplaceholder.typicode.com/posts/" :file-list="fileList" list-type="picture">
+            <el-upload action="http://127.0.0.1:7002/upload" :file-list="fileList" list-type="picture">
               <el-button size="small" type="primary" class="icon-small"><i class="el-icon-upload" />点击上传</el-button>
               <div slot="tip" class="el-upload__tip">只能上传jpg、jpeg、gif、png、bmp文件，且不超过500kb</div>
             </el-upload>
@@ -35,7 +35,7 @@
         <el-card shadow="always" :body-style="{padding: '0px'}">
           <div slot="header" class="title">照片墙展示</div>
           <div class="content-box">
-            <el-upload action="https://jsonplaceholder.typicode.com/posts/" list-type="picture-card" :on-preview="handlePreview">
+            <el-upload action="http://127.0.0.1:7002/upload" list-type="picture-card" :on-preview="handlePreview">
               <i class="el-icon-plus" />
             </el-upload>
             <el-dialog :visible.sync="dialogVisible">
