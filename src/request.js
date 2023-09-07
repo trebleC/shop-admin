@@ -4,7 +4,7 @@ import { getToken } from './utils/cookie'
 
 // 创建axios实例
 const service = axios.create({
-  baseURL: '/api', // api 的 base_url
+  baseURL: process.env.NODE_ENV === 'production'?'':'/api', // api 的 base_url
   timeout: 120000 // 请求超时时间
 })
 
