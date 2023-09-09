@@ -69,11 +69,6 @@
             <el-switch v-model="scope.row.forbid" @change="stateChange(scope.row)" />
           </template>
         </el-table-column> -->
-        <el-table-column label="设置为热门" align="center" width="100">
-          <template slot-scope="scope">
-            <el-switch v-model="scope.row.isHot" @change="hotChange(scope.row)" />
-          </template>
-        </el-table-column>
         <el-table-column label="操作" align="center" width="150">
           <template slot-scope="scope">
             <el-button size="mini" :disabled="scope.row.forbid"
@@ -139,8 +134,8 @@
 
 <script>
 // import { getTableList } from "@/api";
-import { queryCategoryMap, } from "@/api/category";
-import { queryGoodList,deleteGood,setHot } from "@/api/good";
+import { queryCategoryMap } from "@/api/category";
+import { queryHotGoodList,deleteGood } from "@/api/good";
 import excel from "@/utils/excel";
 import Pagination from "@/components/Pagination";
 import Upload from "@/components/Upload";
@@ -227,10 +222,6 @@ export default {
     
   },
   methods: {
-    hotChange(item){
-      console.log('item',item);
-      setHot({goodId:item.goodId,isHot:item.isHot})
-    },
     showImage(item) {
       this.dialogImageUrl = item.url;
       this.dialogVisible = true;
@@ -294,7 +285,7 @@ export default {
     fetchData() {
       this.listLoading = true;
       // 获取数据列表接口
-      queryGoodList(this.listQuery)
+      queryHotGoodList(this.listQuery)
         .then((res) => {
           const data = res;
           if (res.code === 0) {

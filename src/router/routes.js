@@ -36,6 +36,14 @@ export const asyncRoutes = [
           title: '产品列表'
         }
       },
+      {
+        path: 'hotGood',
+        name: 'HotGoodList',
+        component: () => import('../views/good/HotGood'),
+        meta: {
+          title: '热门产品'
+        }
+      },
     ]
   },
   {

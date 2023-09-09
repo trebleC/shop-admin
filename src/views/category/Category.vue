@@ -161,10 +161,9 @@ export default {
       },
       // 新增/编辑提交表单对象
       dialogForm: {
-        name: undefined,
-        phone: undefined,
-        married: undefined,
-        hobby: [],
+        categoryName: '',
+        desc: '',
+        attachments: []
       },
       // 数据总条数
       total: 0,
@@ -226,10 +225,10 @@ export default {
     // 新建数据
     handleCreate() {
       this.formVisible = true;
-      this.dialogForm.name = undefined;
-      this.dialogForm.phone = undefined;
-      this.dialogForm.married = undefined;
-      this.dialogForm.hobby = [];
+      this.categoryId = ''
+      this.dialogForm.categoryName = '';
+      this.dialogForm.desc = '';
+      this.dialogForm.attachments = [];
     },
     // 编辑数据
     handleEdit(index, row) {

@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import { Loading } from 'element-ui';
 import {uploadFile} from '@/api/upload'
 export default {
   name: 'UploadImage',
@@ -46,8 +47,10 @@ export default {
       const formData = new FormData();
       formData.append("file", param.file);
       formData.append("name", param.file.name);
+      let loadingInstance1 = Loading.service({ fullscreen: true });
       uploadFile(formData).then(res => {
         // this.fileList.push(param.file)
+        loadingInstance1.close()
         this.$emit('on-success',res.data)
       })
       

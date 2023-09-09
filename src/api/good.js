@@ -31,3 +31,20 @@ export function deleteGood(params) {
   })
 }
 
+
+export function setHot(params) {
+  return request({
+    url: '/setHot',
+    method: 'get',
+    params
+  })
+}
+
+export function queryHotGoodList(params) {
+  return request({
+    url: '/queryHotGoodList',
+    method: 'get',
+    params
+  })
+}
+
