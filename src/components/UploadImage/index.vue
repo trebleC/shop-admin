@@ -77,7 +77,7 @@ export default {
       nameArray.pop(1)
       let name = nameArray.join('.')
 
-      const isType = /\.(jpg|png|bmp|jpeg|webp)$/.test(file.name)
+      // const isType = /\.(jpg|png|bmp|jpeg|webp)$/.test(file.name)
       const isName = /^[a-zA-Z0-9\-_\.]{1,20}$/.test(name)
       const isLt2M = file.size / 1024 / 1024 / 1024 < 2
       if (!isType) {
