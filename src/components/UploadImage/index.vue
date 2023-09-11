@@ -77,17 +77,17 @@ export default {
       nameArray.pop(1)
       let name = nameArray.join('.')
 
-      // const isType = /\.(jpg|png|bmp|jpeg|webp)$/.test(file.name)
+      const isType = /\.(jpg|png|bmp|jpeg|webp)$/.test(file.name)
       const isName = /^[a-zA-Z0-9\-_\.]{1,20}$/.test(name)
       const isLt2M = file.size / 1024 / 1024 / 1024 < 2
-      if (!isType) {
-        this.$message.error('上传文件只能是.zip .rar .bin .apk格式!')
-        return false
-      }
-      if (!isName) {
-        this.$message.error('上传文件名称需为1~20个英文、数字、点号、连字符或下划线')
-        return Promise.reject(false)
-      }
+      // if (!isType) {
+      //   this.$message.error('上传文件只能是.zip .rar .bin .apk格式!')
+      //   return false
+      // }
+      // if (!isName) {
+      //   this.$message.error('上传文件名称需为1~20个英文、数字、点号、连字符或下划线')
+      //   return Promise.reject(false)
+      // }
       // if (!isLt2M) {
       //   this.$message.error('上传文件大小不能超过 512k!')
       //   return false
